@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaavya | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">Kaavya</a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Header Section -->
+  <header id="home" class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Kaavya</h1>
+        <p class="hero-subtitle">Cognitive Sciences | Psychology | Research | Human Factor | Social Impact</p>
+        <p class="hero-description">Portfolio of Kaavya Lakshmi</p>
+      </div>
+      <!-- Hero Image positioned on the right as vertical rectangle -->
+      <img src="image.jpg" alt="Kaavya Lakshmi Portrait" class="hero-image">
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="section-container">
+      <h2>About Me</h2>
+      <p>
+        I am currently in the final semester of my MSc in Cognitive Sciences, Learning, and Technology at Amrita Vishwa Vidyapeetham. I completed BA (Hons) in Psychology from OP Jindal Global University. As part of my MSc program, I am required to undertake an internship during April and May 2025. I am interested in pursuing the internship in areas such as human computer interaction, building humane technologies, ethical AI, neurodiversity, mental health and social justice.
+
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="section-container">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1: Toy Design -->
+        <article class="project-card" data-project="toy-design">
+          <div class="project-image-placeholder" aria-label="Toy Design project">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#D4ECEC"/>
+              <circle cx="200" cy="150" r="80" fill="#2F8F9D" opacity="0.8"/>
+              <path d="M 150 150 L 200 100 L 250 150 Z" fill="#3BACB6"/>
+            </svg>
+          </div>
+          <div class="project-content">
+            <h3>Toy Design</h3>
+            <p class="project-summary">Participated in the Cognify toy design competition as part of a team. Designed a toy for neurodivergent children to train saccadic eye movements and created its 3D model using Tinkercad. </p>
+            
+            <!-- Expandable section (hidden by default) -->
+            <div class="project-details">
+              <p class="project-description">
+                Oscilipillar is an interactive, modular toy designed for children aged 3 to 5 years. It features oscillating, glitter-filled bobs that move like pendulums, capturing visual attention and encouraging coordinated eye movements. The toy includes a tactile lock mechanism, a foam-covered top for sensory engagement, and gentle sound feedback to reinforce interaction. Its front panel can be changed as the child grows, allowing themes aligned with evolving interests. Oscilipillar is inclusive and suitable for both neurotypical and neurodivergent children, with the goal of improving attentional control through coordinated saccadic movements.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Design Thinking</span>
+                <span class="tag">Neurodiversity</span>
+                <span class="tag">Inclusive Design</span>
+              </div>
+              <div class="project-details-footer">
+                <p class="project-team"><strong>Team Members:</strong> Kaavya, Steffy, Ajeetha</p>
+                <a href="toy design.pdf" class="project-link" target="_blank" download>Download Toy Design Document (PDF)</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Deep Learning -->
+        <article class="project-card" data-project="deep-learning">
+          <div class="project-image-placeholder" aria-label="Deep Learning project">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#D4ECEC"/>
+              <g stroke="#2F8F9D" stroke-width="2" fill="none">
+                <circle cx="100" cy="150" r="20"/>
+                <circle cx="200" cy="100" r="20"/>
+                <circle cx="200" cy="150" r="20"/>
+                <circle cx="200" cy="200" r="20"/>
+                <circle cx="300" cy="150" r="20"/>
+                <line x1="120" y1="150" x2="180" y2="100"/>
+                <line x1="120" y1="150" x2="180" y2="150"/>
+                <line x1="120" y1="150" x2="180" y2="200"/>
+                <line x1="220" y1="100" x2="280" y2="150"/>
+                <line x1="220" y1="150" x2="280" y2="150"/>
+                <line x1="220" y1="200" x2="280" y2="150"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-content">
+            <h3>Deep Learning</h3>
+            <p class="project-summary">Worked on Transfer Learning Neural Network to predict Dog Emotions and compared the model’s prediction between Indian and International Dog Breeds</p>
+            
+            <!-- Expandable section (hidden by default) -->
+            <div class="project-details">
+              <p class="project-description">
+                The project aim to understand the differences in training accuracy of convolutional neural networks when using pretrained models, such as EfficientNet and MobileNet, compared to training networks from scratch without pretraining, for predicting dog emotions from an image dataset.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Transfer Learning</span>
+                <span class="tag">Google Colab</span>
+                <span class="tag">Python</span>
+              </div>
+              <div class="project-details-footer">
+                <p class="project-team"><strong>Team Members:</strong> Kaavya, Tuba</p>
+                <a href="https://github.com/Kaavya177/EmoPaw" class="project-link" target="_blank">GitHub Repository</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Cognitive Labyrinth Website -->
+        <article class="project-card" data-project="cognitive-labyrinth">
+          <div class="project-image-placeholder" aria-label="Cognitive Labyrinth Website project">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#D4ECEC"/>
+              <g stroke="#2F8F9D" stroke-width="3" fill="none">
+                <path d="M 80 80 L 320 80 L 320 220 L 80 220 Z"/>
+                <path d="M 150 80 L 150 180"/>
+                <path d="M 220 100 L 220 220"/>
+                <path d="M 80 150 L 280 150"/>
+              </g>
+              <circle cx="200" cy="150" r="8" fill="#3BACB6"/>
+            </svg>
+          </div>
+          <div class="project-content">
+            <h3>Cognitive Labyrinth Website</h3>
+            <p class="project-summary">Developed a project website using Google Sites as part of the Cognitive Labyrinth Exhibition in the International Conference of Gender and Technology ICGT'2025 at Amrita Vishwa Vidyapeetham.</p>
+            
+            <!-- Expandable section (hidden by default) -->
+            <div class="project-details">
+              <p class="project-description">
+                Served as Digital Coordinator by designing QR codes for each stall and collaborating with station representatives to curate and showcase their content effectively on the platform.
+              </p>
+              <div class="project-tags">
+                <span class="tag">User Experience</span>
+                <span class="tag">Google Sites</span>
+                <span class="tag">Digital Coordinator</span>
+              </div>
+              <div class="project-details-footer">
+                <a href="https://sites.google.com/view/cognitive-labyrinth-cslt/home" class="project-link" target="_blank">Visit Cognitive Labyrinth</a>
+              </div>
+              <p class="project-note">I created a website for the project using Google Sites. Alongside this, I designed QR codes for display at each stall and coordinated with station representatives to curate and showcase the content they wanted on the digital platform.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section id="research" class="research-section-main">
+    <div class="section-container">
+      <h2>Research & Publications</h2>
+      <img src="thesis.jpg" alt="Research thesis" class="research-main-image">
+      <div class="research-list">
+        <article class="research-card">
+          <h3>Honours Thesis</h3>
+          <p class="research-card-title">The Impact of Emotion in Visuospatial Working Memory</p>
+          <p class="research-card-meta">Supervisor: Dr. Divya Bhatia</p>
+        </article>
+        <article class="research-card">
+          <h3>Ongoing Research</h3>
+          <p class="research-card-title">Understanding How Teachers Classify Students' Affective States Using Quantitative and Qualitative Data</p>
+          <p class="research-card-meta">Guide: Dr. Matthijs Fakkel (Gaurang)</p>
+        </article>
+        <article class="research-card">
+          <h3>Ongoing Paper</h3>
+          <p class="research-card-title">Global Gender Differences in Access to Technology Support</p>
+          <p class="research-card-meta">Authors: Matthijs Fakkel, Kaavya Lakshmi, Shubham, Tyler, Meltem Alkoyak, Victoria Ustenko</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="section-container">
+      <h2>Skills & Expertise</h2>
+      <div class="skill-tags">
+        <span class="skill-tag">Cognitive Experiment</span>
+        <span class="skill-tag">Data Collection</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Computational Neuroscience</span>
+        <span class="skill-tag">Data Analysis</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">Psychology</span>
+        <span class="skill-tag">Generative AI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="section-container">
+      <h2>Get In Touch</h2>
+      <p>I'd love to hear from you! Feel free to reach out with opportunities or just to connect.</p>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+      <p class="contact-alternative">Email: <a href="mailto:kaavya@gmail.com">kaavya@example.com</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="section-container">
+      <p>&copy; 2026 Kaavya. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
