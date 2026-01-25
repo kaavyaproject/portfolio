@@ -11,26 +11,27 @@ function initializeHamburgerMenu() {
 
   if (!hamburger) return;
 
-  hamburger.addEventListener('click', function() {
+  // Toggle menu open/close on hamburger click
+  hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('active');
     sidebar.classList.toggle('mobile-menu-open');
     hamburger.setAttribute('aria-expanded', hamburger.classList.contains('active'));
   });
 
-  // Close menu when a link is clicked
+  // Close menu when a navigation link is clicked
   navLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function () {
       hamburger.classList.remove('active');
       sidebar.classList.remove('mobile-menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
 
-  // Close menu when clicking outside
-  document.addEventListener('click', function(e) {
+  // Close menu when clicking outside of sidebar
+  document.addEventListener('click', function (e) {
     const isClickInsideSidebar = sidebar.contains(e.target);
     const isClickOnHamburger = hamburger.contains(e.target);
-    
+
     if (!isClickInsideSidebar && !isClickOnHamburger && sidebar.classList.contains('mobile-menu-open')) {
       hamburger.classList.remove('active');
       sidebar.classList.remove('mobile-menu-open');
@@ -39,7 +40,7 @@ function initializeHamburgerMenu() {
   });
 }
 
-// Track active navigation link based on scroll position
+// Highlight active navigation link based on scroll position
 function initializeNavigationTracking() {
   const sections = document.querySelectorAll('section, header');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -49,7 +50,7 @@ function initializeNavigationTracking() {
     rootMargin: '-50px 0px -50%'
   };
 
-  const observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(link => link.classList.remove('active'));
@@ -64,10 +65,10 @@ function initializeNavigationTracking() {
   sections.forEach(section => observer.observe(section));
 }
 
-// Initialize all functionality when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize portfolio functionality when DOM is ready
+document.addEventListener('DOMContentLoaded', function () {
   initializeNavigationTracking();
   initializeHamburgerMenu();
-  
+
   console.log('🎨 Professional Portfolio Initialized!');
 });
