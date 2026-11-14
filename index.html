@@ -4,82 +4,192 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kaavya | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Playfair Display for headings + Poppins for body -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+<style>
+.contact-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.info-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 110px;
+  padding: 20px;
+  border: 1px solid #d5d5d5;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.box-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.box-value {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.box-arrow {
+  position: absolute;
+  right: 18px;
+  top: 17px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+  background: #A8B5A0;
+  color: #ffffff;
+  border-color: #A8B5A0;
+  transform: translateY(-4px);
+}
+
+.info-box:hover .box-label {
+  color: #ffffff;
+}
+
+.info-box:hover .box-arrow {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 700px) {
+  .contact-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 <body>
-  <!-- Sidebar Navigation -->
-<nav class="sidebar" role="navigation" aria-label="Main navigation">
-  <div class="sidebar-header">
-    <a href="#home" class="nav-logo">Kaavya</a>
-    <button class="hamburger" id="menu-btn" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-  <ul class="nav-menu" id="nav-menu">
-    <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
-    <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-    <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-    <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
-    <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-    <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-  </ul>
+  <!-- FIXED HORIZONTAL NAVIGATION -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+
+    <a href="#home" class="nav-logo">Kaavya Lakshmi</a>
+
+    <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#research" class="nav-link">Research</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
 </nav>
-
   <main>
-    <!-- Hero Header Section -->
-    <header id="home" class="hero-section">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>Kaavya Lakshmi</h1>
-          <p class="hero-subtitle">Cognitive Sciences | Psychology | Research | Human AI Interaction | Social Impact</p>
-          <p class="hero-description"> Questioning. Exploring. Discovering. </p>
-        </div>
-        <img src="image.jpg" alt="Kaavya Lakshmi Portrait" class="hero-image">
-      </div>
-    </header>
+   <!-- HERO HEADER SECTION -->
+<header id="home" class="hero-section">
 
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+           <!-- <span class="hero-greeting">
+                Hi!
+            </span>  --> <br>
+
+            <h1>Kaavya Lakshmi</h1>
+
+            <p class="hero-subtitle">
+		Affective Science <br> Human AI Interaction <br> Cognitive Sciences <br> Psychology 
+            </p> <br> <br>  
+
+            <p class="hero-description">
+                Questioning. Exploring. Discovering.
+            </p>
+
+        </div>
+
+        <div class="hero-image-container">
+            <img src="image.jpg"
+                 alt="Kaavya Lakshmi Portrait"
+                 class="hero-image">
+        </div>
+
+    </div>
+
+</header>
     <!-- About Section -->
     <section id="about" class="about-section">
-      <div style="text-align: center;">
-        <video controls width="100%" style="max-width: 800px;">
-        <source src="Portfolio%20Video_1.mp4" type="video/mp4">
-        Your browser does not support video playback.
-        </video>
-      </div>
-      <div class="section-container">
-        <br>
-        <br>
-        <h2>About Me</h2>
-        <br>
-        <p>
-          Delving deeper into Cognitive Sciences has shown me that there is always more to understand about the human mind. I see human experience as dynamic, shaped by the systems around us, including institutions, culture, relationships, and our interactions with the environment. Throughout my studies, my curiosity about human phenomena and my inclination to examine them from multiple perspectives have remained constant. Through my research projects, I have explored emotions, memory, decision-making, and learning, and I now hope to build on this foundation to understand the cognitive factors shaping Human-AI Interaction.
-        </p>
-        <br>
-        <p>
-          I am particularly drawn to interdisciplinary environments where diverse perspectives can come together to examine complex questions. While my foundation is in the social sciences, my Master’s journey has introduced me to deep learning, computational neuroscience, neurophysiology, and prompt engineering, alongside practical technical skills. I value the willingness to learn beyond my existing expertise, take on unfamiliar challenges, and build new foundations when needed.
-        </p>
-        <br>
-        <p>
-          My commitment to social good has also remained central to my journey. I am motivated by causes including environmental protection, disaster management, nurturing environments for children, and equitable access to mental health. I hope to contribute to meaningful change by bringing together curiosity, interdisciplinary thinking, and a commitment to continuous learning.
-        </p>
-        <br>
-        <p>
-          I remain deeply committed to serving the social good. I am motivated to contribute to causes such as digital equity, mental health wellbeing, ethical and responsible AI, neurodiversity, inclusive education, and sustainability. I believe meaningful action can contribute to systemic change, and I want to be an active part of that process.
-        </p>
-      </div>
-    </section>
+
+    <div class="section-container">
+
+        <!-- Section Heading -->
+        <div class="section-heading">
+            <!-- <span class="section-kicker">A LITTLE ABOUT ME</span>  -->
+            <h2>About Me</h2>
+            <span class="heading-divider"></span>
+        </div>
+
+        <!-- Top Row: Text + Video -->
+        <div class="about-top">
+
+            <div class="about-intro">
+                <div class="about-content">
+
+            <p>
+               Delving deeper into Cognitive Science and Psychology has shown me that there is always more to understand about the human mind. I view human experience as dynamic and continuously shaped by culture, relationships, and interactions with the surrounding environment. Throughout my studies, my curiosity about human phenomena and my inclination to examine them from multiple perspectives have remained constant. Through my research projects, I have explored emotions, memory, decision-making, and learning. I now hope to build on this foundation to better understand the cognitive and emotional dimensions of Human-AI Interaction.
+            </p>
+       </div>
+             </div>
+
+            <div class="about-video">
+                <video controls preload="metadata" poster="video-thumbnail.jpg">
+                    <source src="Portfolio%20Video_1.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+
+        </div>
+        <!-- Bottom Row: Full Width Text -->
+       
+           <div class="about-content">
+       <p>
+                I am particularly drawn to interdisciplinary environments where diverse perspectives can come together to examine complex questions. While my foundation is in the social sciences, my Master’s journey has introduced me to deep learning, computational neuroscience, neurophysiology, and prompt engineering, alongside practical technical skills. I am willing to learn beyond my existing expertise, take on unfamiliar challenges, and build new foundations when needed.
+            </p>
+       </div>
+<br>
+           <div class="about-content">
+       <p> My commitment to social good has remained central to my journey. I am motivated to contribute to causes such as digital equity, mental health wellbeing, ethical and responsible AI, neurodiversity, inclusive education, and sustainability. I hope to contribute to meaningful change by bringing together curiosity, interdisciplinary thinking, and a commitment to continuous learning.
+            </p>
+       </div>
+
+    </div>
+
+</section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
       <div class="section-container">
+        <div class="section-heading">
+
         <h2>Skills & Expertise</h2>
-        <div class="skills-grid">
+        <span class="heading-divider"></span><p>&nbsp;</p>
+	</div>
+      <div class="skills-grid">
           <div class="skill-category">
             <h3>Research </h3>
             <ul class="skill-list">
@@ -133,12 +243,32 @@
         </div>
       </div>
     </section>
+<!-- RESEARCH SECTION -->
+<section id="research" class="research-section-main">
 
-    <!-- Research Section -->
-    <section id="research" class="research-section-main">
-      <div class="section-container">
-        <h2>Research & Publications</h2>
-        <img src="thesis.jpg" alt="Research thesis" class="research-main-image">
+    <div class="section-container">
+
+        <div class="section-heading">
+            <!-- <span class="section-kicker">
+                02 — ACADEMIC PROFILE
+            </span> -->
+
+            <h2>Research & Publications</h2>
+
+            <!-- <p class="section-subtitle">
+                Exploring research questions, methodologies
+                and areas of academic interest.
+            </p> -->
+
+            <span class="heading-divider"></span>
+        </div>
+
+        <!-- Your existing research image -->
+        <img src="thesis.jpg"
+             alt="Research Thesis"
+             class="research-main-image">
+
+        <!-- Your existing research cards -->
         <div class="research-list">
           <article class="research-card">
             <h3>Honours Thesis</h3>
@@ -166,62 +296,100 @@
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
       <div class="section-container">
+        <div class="section-heading">
+
         <h2>Featured Projects</h2>
-        <div class="projects-list">
+     <span class="heading-divider"></span>
+	<p>&nbsp;</p>
+	</div>
+       <div class="projects-list">
           <!-- Cognitive Labyrinth -->
           <article class="project-card">
+	   <a href="https://sites.google.com/view/cognitive-labyrinth-cslt/home" target="_blank" rel="noopener noreferrer">
             <div class="project-image">
               <img src="cognitive labryinth.png" alt="Cognitive Labyrinth Website" class="project-img">
             </div>
             <div class="project-content">
               <h3>Cognitive Labyrinth</h3>
-              <p class="project-summary">Developed a project website using Google Sites as part of the Cognitive Labyrinth Exhibition. Served as Digital Coordinator by designing QR codes for each stall and collaborating with station representatives to curate and showcase their content effectively on the platform.</p>
-              <p class="project-location">International Conference of Gender and Technology 2025, Amrita Vishwa Vidyapeetham</p>
+              <p class="project-summary">Developed and managed the Cognitive Labyrinth Exhibition website using Google Sites, coordinating digital content and QR code integration for exhibition stalls in collaboration with station representatives.</p>
+              <p class="project-location">Cognitive Labryinth Exhibition, International Conference of Gender and Technology 2025, Amrita Vishwa Vidyapeetham</p>
               <div class="project-tags">
                 <span class="tag">User Experience</span>
                 <span class="tag">Google Sites</span>
                 <span class="tag">Digital Coordinator</span>
               </div>
-              <a href="https://sites.google.com/view/cognitive-labyrinth-cslt/home" class="project-link" target="_blank" rel="noopener noreferrer">Visit Website</a>
+      <p class="project-team"><strong>Team:</strong> Students and faculty from MSc Cognitive Sciences, Learning and Technology (Amritapuri) and PG Diploma in Counselling Psychology (Coimbatore).</p>
+      <p class="project-summary">
+        <strong>My Contributions:</strong> Lead Digital Coordinator
+      </p>
+             <!-- <a href="https://sites.google.com/view/cognitive-labyrinth-cslt/home" class="project-link" target="_blank" rel="noopener noreferrer" download>Cognitive Labyrinth Website</a> -->
+<a href="https://sites.google.com/view/cognitive-labyrinth-cslt/home"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Cognitive Labyrinth Website (opens in a new tab)">
+   Cognitive Labyrinth ↗
+</a>
+
             </div>
+              </a>
           </article>
 
           <!-- Deep Learning Project -->
           <article class="project-card">
+	   <a href="https://github.com/tubas-hub/EmoPaw" target="_blank" rel="noopener noreferrer">
             <div class="project-image">
               <img src="deep learning.png" alt="Deep Learning Project" class="project-img">
             </div>
             <div class="project-content">
               <h3>EmoPaw: Deep Learning</h3>
-              <p class="project-summary">Worked on Transfer Learning Neural Network to predict Dog Emotions and compared the model's prediction between Indian and International Dog Breeds. The project aimed to understand the differences in training accuracy of convolutional neural networks when using pretrained models, such as EfficientNet and MobileNet.</p>
-              <p class="project-location">Part of Course, Department of Cognitive Sciences and Psychology, Amrita Vishwa Vidyapeetham, 2025</p>
+              <p class="project-summary">Developed a transfer learning-based CNN to predict dog emotions across Indian and international breeds, comparing model performance using pretrained architectures such as EfficientNet and MobileNet.</p>
+              <p class="project-location">Part of Deep Learning Course, Department of Cognitive Sciences and Psychology, Amrita Vishwa Vidyapeetham, 2025</p>
               <div class="project-tags">
                 <span class="tag">Transfer Learning</span>
                 <span class="tag">Google Colab</span>
                 <span class="tag">Python</span>
               </div>
               <p class="project-team"><strong>Team:</strong> Kaavya, Tuba</p>
-              <a href="https://github.com/tubas-hub/EmoPaw" class="project-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+      <p class="project-summary">
+        <strong>My Contributions:</strong> Conceptualization, dataset identification, Google Colab coding, data visualization, MobileNet implementation, accuracy evaluation, stray dog image compilation and testing, and presentation.
+      </p>
+<a href="https://github.com/tubas-hub/EmoPaw"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Deep Learning Project (opens in a new tab)">
+   Deep Learning Project ↗
+</a>
             </div>
+	   </a>
           </article>
           
           <!-- NLP Project -->
           <article class="project-card">
+	   <a href="https://github.com/Socratesmagic8ball/NLP-Project" target="_blank" rel="noopener noreferrer">
             <div class="project-image">
               <img src="NLP.jpg" alt="NLP Project" class="project-img">
             </div>
             <div class="project-content">
               <h3>Candid AI: Natural Language Processing</h3>
               <p class="project-summary">Applied BERT-based models to detect hate speech and racial bias in AI prompts. The project explored the use of natural language processing and transformer-based models for identifying harmful and biased language in AI-generated text.</p>
-              <p class="project-location">Part of Course, Department of Cognitive Sciences and Psychology, Amrita Vishwa Vidyapeetham, 2025</p>
+              <p class="project-location">Part of NLP Course, Department of Cognitive Sciences and Psychology, Amrita Vishwa Vidyapeetham, 2025</p>
               <div class="project-tags">
                 <span class="tag">BERT</span>
                 <span class="tag">Google Colab</span>
                 <span class="tag">Python</span>
               </div>
               <p class="project-team"><strong>Team:</strong> Kaavya, Varnika, Venkatesh, Chacko </p>
-              <a href="https://github.com/Socratesmagic8ball/NLP-Project" class="project-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+      <p class="project-summary">
+        <strong>My Contributions:</strong>  Conceptualization, MBIB dataset integration, BERT fine-tuning, application of the trained model to AI prompt datasets, and presentation.
+      </p>
+<a href="https://github.com/Socratesmagic8ball/NLP-Project"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="NLP Project (opens in a new tab)">
+   NLP Project ↗
+</a>
             </div>
+	   </a>
           </article>
 
           <!-- Computational Neuroscience Project -->
@@ -231,8 +399,8 @@
             </div>
             <div class="project-content">
               <h3>Purkinje and Fastigial Nucleus: Computational Neuroscience</h3>
-              <p class="project-summary">Worked on a project that aimed to computationally model the single-neuron dynamics of Purkinje cells and Deep Cerebellar Nucleus neurons in the vermis region of the cerebellum using the Adaptive Exponential Integrate-and-Fire framework. The project was implemented in the NEURON simulation environment based on experimental studies, including Kim (2012).</p>
-              <p class="project-location">Specialization Course, Mind Brain Centre, Amrita Vishwa Vidyapeetham, 2025</p>
+              <p class="project-summary">Computationally modeled Purkinje and Deep Cerebellar Nucleus neuron dynamics in the cerebellar vermis using the Adaptive Exponential Integrate-and-Fire framework in NEURON, based on experimental studies.</p>
+              <p class="project-location">Part of Computational Neuroscience Course, Mind Brain Centre, Amrita Vishwa Vidyapeetham, 2025</p>
               <div class="project-tags">
                 <span class="tag">Neuroscience</span>
                 <span class="tag">NEURON</span>
@@ -240,6 +408,9 @@
               </div>
               <p class="project-team"><strong>Team:</strong> Kaavya Lakshmi, Sruthi Santhosh Kumar, Lekshmi I</p>
             </div>
+      <p class="project-summary">
+        <strong>My Contributions:</strong> Literature review, research question formulation, selection of neuronal parameters using the AdEx model, computational modelling of Purkinje cells and the fastigial nucleus, analysis of observations, and presentation.
+      </p>
           </article>
 
           <!-- Toy Design Project -->
@@ -257,31 +428,92 @@
                 <span class="tag">Tinkercad</span>
               </div>
               <p class="project-team"><strong>Team:</strong> Kaavya, Steffy, Ajeetha</p> 
-              <a href="https://www.tinkercad.com/things/cmA2Kr59RPO-toy-design?sharecode=BumdHrvirT5-1kfguXW2vMLvcoNG2EaqNJMTv7T0vCg" class="project-link" target="_blank" rel="noopener noreferrer" download>3D Design</a>
-              <a href="https://unstop.com/certificate-preview/2e401a6f-a80b-4a36-b4e9-e04ab4f02419?utm_campaign=" class="project-link" target="_blank" rel="noopener noreferrer" download>Certificate</a>
+      <p class="project-summary">
+        <strong>My Contributions:</strong>  Ideation, sketching, 3D modelling, mechanism and stimulus design, and preparation of a technical report covering materials, costs, manufacturing processes, and developmental considerations.
+      </p>
+              <!-- <a href="https://www.tinkercad.com/things/cmA2Kr59RPO-toy-design?sharecode=BumdHrvirT5-1kfguXW2vMLvcoNG2EaqNJMTv7T0vCg" class="project-link" target="_blank" rel="noopener noreferrer" download>3D Design</a>
+              <a href="https://unstop.com/certificate-preview/2e401a6f-a80b-4a36-b4e9-e04ab4f02419?utm_campaign=" class="project-link" target="_blank" rel="noopener noreferrer" download>Certificate</a> -->
             </div>
           </article>
+<!-- VirtuProtect Hackathon Project -->
+<article class="project-card">
+  <a href="#" onclick="openVirtuProtectVideo(event)">
+    <div class="project-image">
+      <img src="VirtuProtect.jpg" alt="VirtuProtect Hackathon" class="project-img">
+    </div>
+    <div class="project-content">
+      <h3>VirtuProtect: GenAI × Gender Technology Hackathon, International Conference on Gender and Technology, Amrita Vishwa Vidyapeetham, 2025</h3>
+      <p class="project-summary">
+        Applied social science perspectives to the development of a generative AI model for detecting child grooming in online conversations.
+      </p>
+      <p class="project-location">
+        GenAI × Gender Technology Hackathon, Team VirtuProtect, 2024
+      </p>
+      <div class="project-tags">
+        <span class="tag">Generative AI</span>
+        <span class="tag">Child Online Safety</span>
+        <span class="tag">Gender Technology</span>
+      </div>
+      <p class="project-team">
+        <strong>Team:</strong> Vishnuvardhan Chowdary, Kaavya Lakshmi, Cheerla, Jeevan Sai Karumuri, CB Harsha Vardhan, Arunima Krishna
+      </p>
+      <p class="project-summary">
+        <strong>My Contributions:</strong> Background literature review, conceptualization, ethical considerations, and video and document preparation.
+      </p>
+    </div>
+  </a>
+</article>
+
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-      <div class="section-container">
-        <h2>Get In Touch</h2>
-        <p class="contact-text">I'd love to hear from you. Feel free to reach out with opportunities or just to connect.</p>
-        <p class="contact-text"><a href="mailto:kaavyal@gmail.com">kaavyal@gmail.com</a></p>
-        <p class="contact-text"><a href="https://www.linkedin.com/in/kaavya-lakshmi-6b988a258/" target="_blank">LinkedIn</a></p>
-        <p class="contact-text"><a href="https://orcid.org/0009-0001-2035-6122" target="_blank">ORCID: 0009-0001-2035-612</a></p>
-      </div>
-    </section>
+<!-- CONTACT SECTION -->
+
+<section id="contact" class="contact-section">
+
+    <h2>Get In Touch</h2>
+ 
+   <p class="contact-text">
+        I'd love to hear from you.
+        Feel free to reach out with opportunities
+        or just to connect.
+    </p>
+
+    <div class="contact-links">
+  <a href="mailto:kaavyal@gmail.com" class="info-box">
+    <span class="box-label">EMAIL</span>
+    <span class="box-value">kaavyal@gmail.com</span>
+  </a>
+
+  <a href="https://orcid.org/0009-0001-2035-6122"
+     target="_blank"  rel="noopener noreferrer" class="info-box">
+    <span class="box-label">ORCID</span>
+    <span class="box-value">0009-0001-2035-6122</span>
+  </a>
+
+  <a href="https://www.linkedin.com/in/kaavya-lakshmi-6b988a258/"
+     target="_blank"  rel="noopener noreferrer" class="info-box">
+    <span class="box-label">LinkedIn</span>
+    <span class="box-value">Kaavya Lakshmi</span>
+  </a>
+
+        <a href="kaavya-cv.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="info-box">
+    <span class="box-label">CURRICULUM VITAE</span>
+    <span class="box-value">Download CV (PDF)</span>
+  </a>
+</div>
+</section>
 
   </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="section-container">
-      <p>September 2026</p>
+      <p>November 2026</p>
     </div>
   </footer>
 
