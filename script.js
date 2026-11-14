@@ -66,9 +66,154 @@ function initializeNavigationTracking() {
 }
 
 // Initialize portfolio functionality when DOM is ready
-document.addEventListener('DOMContentLoaded', function () {
-  initializeNavigationTracking();
-  initializeHamburgerMenu();
+//document.addEventListener('DOMContentLoaded', function () {
+//  initializeNavigationTracking();
+//  initializeHamburgerMenu();
+//  console.log('🎨 Professional Portfolio Initialized!');
+//});
 
-  console.log('🎨 Professional Portfolio Initialized!');
+// ============================================
+// RESPONSIVE DROPDOWN NAVIGATION
+// ============================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuBtn = document.getElementById("menu-btn");
+    const navMenu = document.getElementById("nav-menu");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    if (!menuBtn || !navMenu) {
+        console.error("Navigation elements not found. Check your HTML IDs.");
+        return;
+    }
+
+    // Open and close dropdown
+    menuBtn.addEventListener("click", function () {
+
+        const isOpen = navMenu.classList.toggle("active");
+
+        menuBtn.classList.toggle("active", isOpen);
+
+        menuBtn.setAttribute("aria-expanded", isOpen);
+
+        menuBtn.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    // Close menu after clicking a navigation link
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navMenu.classList.remove("active");
+            menuBtn.classList.remove("active");
+
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "Open navigation menu");
+
+            // Update active navigation link
+            navLinks.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            link.classList.add("active");
+        });
+
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+
+        if (
+            !menuBtn.contains(event.target) &&
+            !navMenu.contains(event.target)
+        ) {
+            navMenu.classList.remove("active");
+            menuBtn.classList.remove("active");
+
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "Open navigation menu");
+        }
+
+    });
+
+    // Close menu using Escape key
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+            navMenu.classList.remove("active");
+            menuBtn.classList.remove("active");
+
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "Open navigation menu");
+
+            menuBtn.focus();
+        }
+
+    });
+
 });
+
+/* =========================================
+   ACTIVE NAVIGATION ON SCROLL
+   ========================================= */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const sections = Array.from(navLinks)
+        .map(link => document.querySelector(link.getAttribute("href")))
+        .filter(section => section !== null);
+
+    function updateActiveLink() {
+
+        const navbar = document.querySelector(".navbar");
+        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+        const scrollPosition =
+            window.scrollY + navbarHeight + 50;
+
+        let currentSection = sections[0];
+
+        sections.forEach(section => {
+            if (section.offsetTop <= scrollPosition) {
+                currentSection = section;
+            }
+        });
+
+        // Highlight the last section at the bottom of the page
+        if (
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 5
+        ) {
+            currentSection = sections[sections.length - 1];
+        }
+
+        navLinks.forEach(link => {
+            const isActive =
+                link.getAttribute("href") ===
+                "#" + currentSection.id;
+
+            link.classList.toggle("active", isActive);
+
+            if (isActive) {
+                link.setAttribute("aria-current", "location");
+            } else {
+                link.removeAttribute("aria-current");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", updateActiveLink, {
+        passive: true
+    });
+
+    window.addEventListener("resize", updateActiveLink);
+
+    // Set correct selection when page loads
+    updateActiveLink();
+
+});
+
