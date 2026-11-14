@@ -562,6 +562,50 @@ section:not(.hero-section) {
     margin: 0 auto 2rem;
 }
 
+/* ABOUT SECTION - TOP ROW */
+
+.about-top-row {
+    display: grid !important;
+    grid-template-columns: repeat(2,minmax(0, 1fr));
+    gap: 3rem;
+    width: 100%;
+    align-items: center;
+    margin:0 auto, 2rem;
+}
+
+/* LEFT COLUMN - TEXT */
+
+.about-top-row .about-content {
+    width: 100%;
+    max-width: none !important;
+    margin: 0;
+    min-width: 0;
+    padding-right: 25px;
+}
+
+/* RIGHT COLUMN - VIDEO */
+
+.about-top-row .about-video {
+    width: 100%;
+    max-width: none !important;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: centerS;
+}
+
+.about-top-row .about-video video {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    object-fit: contain;
+}
+
 /* LEFT SIDE TEXT */
 
 .about-intro {
@@ -580,7 +624,7 @@ section:not(.hero-section) {
 
 .about-video {
     width: 100%;
-    max-width: 480px;
+    max-width: 350px;
     justify-self: end;
     overflow: hidden;
     border-radius: var(--radius-lg);
@@ -591,7 +635,7 @@ section:not(.hero-section) {
 
 .about-video video {
     display: block;
-    width: 100%;
+    width: 80%;
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
@@ -601,7 +645,7 @@ section:not(.hero-section) {
 
 .about-bottom {
     width: 100%;
-    margin: 2rem auto 0;
+    margin-top: 35px;
 }
 
 .about-bottom p {
@@ -616,9 +660,17 @@ section:not(.hero-section) {
 
 @media (max-width: 768px) {
 
+    .about-top-row {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
     .about-top {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    .about-top-row .about-content {
+     	padding-right: 0;
     }
 
     .about-video {
@@ -627,7 +679,8 @@ section:not(.hero-section) {
     }
 
     .about-bottom {
-        margin-top: 1.5rem;
+        margin-top: 25px;
+        
     }
 }
 
