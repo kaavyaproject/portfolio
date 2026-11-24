@@ -1,197 +1,145 @@
 /* ============================================
-   Navigation & Interactive Features
-   Professional Portfolio Script
+   SAGE & IVORY ACADEMIC PORTFOLIO
+   NAVIGATION AND INTERACTIVE FEATURES
    ============================================ */
-
-// Toggle hamburger menu
-function initializeHamburgerMenu() {
-  const hamburger = document.querySelector('.hamburger');
-  const sidebar = document.querySelector('.sidebar');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  if (!hamburger) return;
-
-  // Toggle menu open/close on hamburger click
-  hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('active');
-    sidebar.classList.toggle('mobile-menu-open');
-    hamburger.setAttribute('aria-expanded', hamburger.classList.contains('active'));
-  });
-
-  // Close menu when a navigation link is clicked
-  navLinks.forEach(link => {
-    link.addEventListener('click', function () {
-      hamburger.classList.remove('active');
-      sidebar.classList.remove('mobile-menu-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Close menu when clicking outside of sidebar
-  document.addEventListener('click', function (e) {
-    const isClickInsideSidebar = sidebar.contains(e.target);
-    const isClickOnHamburger = hamburger.contains(e.target);
-
-    if (!isClickInsideSidebar && !isClickOnHamburger && sidebar.classList.contains('mobile-menu-open')) {
-      hamburger.classList.remove('active');
-      sidebar.classList.remove('mobile-menu-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
-
-// Highlight active navigation link based on scroll position
-function initializeNavigationTracking() {
-  const sections = document.querySelectorAll('section, header');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '-50px 0px -50%'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        const activeLink = document.querySelector(`.nav-link[data-section="${entry.target.id}"]`);
-        if (activeLink) {
-          activeLink.classList.add('active');
-        }
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach(section => observer.observe(section));
-}
-
-// Initialize portfolio functionality when DOM is ready
-//document.addEventListener('DOMContentLoaded', function () {
-//  initializeNavigationTracking();
-//  initializeHamburgerMenu();
-//  console.log('🎨 Professional Portfolio Initialized!');
-//});
-
-// ============================================
-// RESPONSIVE DROPDOWN NAVIGATION
-// ============================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
     const menuBtn = document.getElementById("menu-btn");
     const navMenu = document.getElementById("nav-menu");
+    const navbar = document.querySelector(".navbar");
+
     const navLinks = document.querySelectorAll(".nav-link");
 
-    if (!menuBtn || !navMenu) {
-        console.error("Navigation elements not found. Check your HTML IDs.");
+    if (!navbar || !navLinks.length) {
+        console.error("Navigation elements not found.");
         return;
     }
 
-    // Open and close dropdown
-    menuBtn.addEventListener("click", function () {
+    /* ========================================
+       MOBILE MENU
+       ======================================== */
 
-        const isOpen = navMenu.classList.toggle("active");
+    function closeMenu() {
+        if (!menuBtn || !navMenu) return;
 
-        menuBtn.classList.toggle("active", isOpen);
-
-        menuBtn.setAttribute("aria-expanded", isOpen);
-
+        navMenu.classList.remove("active");
+        menuBtn.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
         menuBtn.setAttribute(
             "aria-label",
-            isOpen ? "Close navigation menu" : "Open navigation menu"
+            "Open navigation menu"
         );
-    });
+    }
 
-    // Close menu after clicking a navigation link
-    navLinks.forEach(function (link) {
+    if (menuBtn && navMenu) {
 
-        link.addEventListener("click", function () {
+        menuBtn.addEventListener("click", function () {
 
-            navMenu.classList.remove("active");
-            menuBtn.classList.remove("active");
+            const isOpen =
+                navMenu.classList.contains("active");
 
-            menuBtn.setAttribute("aria-expanded", "false");
-            menuBtn.setAttribute("aria-label", "Open navigation menu");
+            if (isOpen) {
+                closeMenu();
+            } else {
+                navMenu.classList.add("active");
+                menuBtn.classList.add("active");
+                menuBtn.setAttribute("aria-expanded", "true");
+                menuBtn.setAttribute(
+                    "aria-label",
+                    "Close navigation menu"
+                );
+            }
 
-            // Update active navigation link
-            navLinks.forEach(function (item) {
-                item.classList.remove("active");
-            });
-
-            link.classList.add("active");
         });
 
-    });
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+        });
 
-    // Close menu when clicking outside
-    document.addEventListener("click", function (event) {
+        document.addEventListener("click", function (event) {
 
-        if (
-            !menuBtn.contains(event.target) &&
-            !navMenu.contains(event.target)
-        ) {
-            navMenu.classList.remove("active");
-            menuBtn.classList.remove("active");
+            if (
+                !navbar.contains(event.target) &&
+                navMenu.classList.contains("active")
+            ) {
+                closeMenu();
+            }
 
-            menuBtn.setAttribute("aria-expanded", "false");
-            menuBtn.setAttribute("aria-label", "Open navigation menu");
-        }
+        });
 
-    });
+        document.addEventListener("keydown", function (event) {
 
-    // Close menu using Escape key
-    document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                closeMenu();
+                menuBtn.focus();
+            }
 
-        if (event.key === "Escape") {
-            navMenu.classList.remove("active");
-            menuBtn.classList.remove("active");
+        });
 
-            menuBtn.setAttribute("aria-expanded", "false");
-            menuBtn.setAttribute("aria-label", "Open navigation menu");
+        window.addEventListener("resize", function () {
 
-            menuBtn.focus();
-        }
+            if (window.innerWidth > 900) {
+                closeMenu();
+            }
 
-    });
+        });
+    }
 
-});
+    /* ========================================
+       ACTIVE NAVIGATION TRACKING
+       ======================================== */
 
-/* =========================================
-   ACTIVE NAVIGATION ON SCROLL
-   ========================================= */
-document.addEventListener("DOMContentLoaded", function () {
+    function updateActiveNavigation() {
 
-    const navLinks = document.querySelectorAll(".nav-link");
+        const activationPoint =
+            navbar.getBoundingClientRect().bottom + 40;
 
-    const sections = Array.from(navLinks)
-        .map(link => document.querySelector(link.getAttribute("href")))
-        .filter(section => section !== null);
+        let currentSection = null;
 
-    function updateActiveLink() {
+        navLinks.forEach(function (link) {
 
-        const navbar = document.querySelector(".navbar");
-        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+            const targetId =
+                link.getAttribute("href");
 
-        const scrollPosition =
-            window.scrollY + navbarHeight + 50;
+            if (!targetId || !targetId.startsWith("#")) {
+                return;
+            }
 
-        let currentSection = sections[0];
+            const section =
+                document.getElementById(
+                    targetId.substring(1)
+                );
 
-        sections.forEach(section => {
-            if (section.offsetTop <= scrollPosition) {
+            if (!section) return;
+
+            const sectionTop =
+                section.getBoundingClientRect().top;
+
+            if (sectionTop <= activationPoint) {
                 currentSection = section;
             }
+
         });
 
-        // Highlight the last section at the bottom of the page
+        // Highlight last section at page bottom
         if (
             window.innerHeight + window.scrollY >=
             document.documentElement.scrollHeight - 5
         ) {
-            currentSection = sections[sections.length - 1];
+            const lastLink = navLinks[navLinks.length - 1];
+
+            const lastId =
+                lastLink.getAttribute("href").substring(1);
+
+            currentSection =
+                document.getElementById(lastId);
         }
 
-        navLinks.forEach(link => {
+        if (!currentSection) return;
+
+        navLinks.forEach(function (link) {
+
             const isActive =
                 link.getAttribute("href") ===
                 "#" + currentSection.id;
@@ -203,17 +151,38 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 link.removeAttribute("aria-current");
             }
+
         });
+
     }
 
-    window.addEventListener("scroll", updateActiveLink, {
-        passive: true
+    /* ========================================
+       EVENT LISTENERS
+       ======================================== */
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation,
+        { passive: true }
+    );
+
+    window.addEventListener(
+        "resize",
+        updateActiveNavigation
+    );
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            // Update selection after navigation starts
+            requestAnimationFrame(updateActiveNavigation);
+
+        });
+
     });
 
-    window.addEventListener("resize", updateActiveLink);
-
-    // Set correct selection when page loads
-    updateActiveLink();
+    // Initial state
+    updateActiveNavigation();
 
 });
-
